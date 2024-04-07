@@ -1,5 +1,5 @@
-﻿using Biblioteca;
-using Exercicio01.Model.entities;
+﻿using Exercicio01.Model.entities;
+using Exercicio01.Model.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 namespace Exercicio01.Views
     {
     //Classe de interface grafica.
-     class ViewCliente
+     internal class ViewCliente
         {
         /* 
          * como a aplicacao nao esta conectada a banco de dados
          * decidi fazer uma lista de clientes statica para simular
-         * o armazenamento de informações e clientes dentro do
-         * possivel com as tecnologias disponibilizadas pelo 
-         * professor
+         * o armazenamento de informações e clientes 
+         * com as tecnologias disponibilizadas pelo professor
          */
         public static List<Cliente> clientes = new List<Cliente>(); 
         public static void OperacoesCliente ( )

@@ -1,14 +1,13 @@
-﻿using Biblioteca;
-using Exercicio01.Model.entities;
+﻿using Exercicio01.Model.entities;
 using Exercicio01.Model.Utils;
 using Exercicio01.Views;
 
 /* 
  * Esta aplicacao tem objetivo de reforçar o 
- * conceito de encapsulamento de campos, o 
- * professor não permitiu a utilização de 
- * tecnologias e recusos mais avançados dos que
- * foram utilizados para esta aplicação 
+ * conceito de encapsulamento de campos, por 
+ * conta de restrições estipuladas pelo professor,
+ * não foi possivel utilizar tecnologias e recusos 
+ * mais avançados para esta aplicação 
  */
 namespace Exercicio01
     {

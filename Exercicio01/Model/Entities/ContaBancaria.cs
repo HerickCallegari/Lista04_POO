@@ -1,4 +1,4 @@
-﻿using Exercicio01.Model.Utils;
+﻿using Exercicio01.Model.Entities.associative;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Exercicio01.Model.entities
-    {
+{
     // classe responsavel por armazenar as transações e saldo do cliente
     internal class ContaBancaria
         {
