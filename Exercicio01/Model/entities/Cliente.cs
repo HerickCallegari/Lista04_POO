@@ -6,32 +6,32 @@ using System.Threading.Tasks;
 
 namespace Exercicio01.Model.entities
     {
-    internal class Cliente
+    //Cliente: Usuario alvo da aplicação
+    internal class Cliente ( string nome, int cpf, string email, string endereco, string telefone )
         {
-        public string NOME { get; set; }
-        public string EMAIL { get; set; }
-        public string ENDERECO { get; set; }
-        public string TELEFONE { get; set; }
-
-        public Cliente ( ) { }
-
-        public Cliente ( string nome, string email, string endereco, string telefone ) : this()
-            {
-            NOME = nome;
-            EMAIL = email;
-            ENDERECO = endereco;
-            TELEFONE = telefone;
-            }
+        public int CPF { get; set; } = cpf;
+        public string Nome { get; set; } = nome;
+        public string Email { get; set; } = email;
+        public string Endereco { get; set; } = endereco;
+        public string Telefone { get; set; } = telefone;
+        public ContaBancaria? Conta { get; set; } = null;
 
         public void AtualizarEndereco( string endereco )
             {
-            ENDERECO = endereco;
+            Endereco = endereco;
             }
 
         public void AtualizarTelefone( string telefone )
             {
-            TELEFONE = telefone;
+            Telefone = telefone;
             }
-
+        public override string ToString ( )
+            {
+            return "\nNome: " + Nome +
+                   "\nCPF: " + CPF +
+                   "\nEmail: " + Email +
+                   "\nTelefone: " + Telefone +
+                   "\nEndereco: " + Endereco;
+            }
         }
     }
