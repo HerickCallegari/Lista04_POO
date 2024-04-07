@@ -31,7 +31,9 @@ namespace Exercicio01.Model.entities
                    "\nCPF: " + CPF +
                    "\nEmail: " + Email +
                    "\nTelefone: " + Telefone +
-                   "\nEndereco: " + Endereco;
+                   "\nEndereco: " + Endereco +
+                   "\nPossui conta: " + (Conta == null ? "False" : "True");
+
             }
         }
     }

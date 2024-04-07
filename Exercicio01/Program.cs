@@ -1,4 +1,5 @@
-﻿using Exercicio01.Model.entities;
+﻿using Banco.Views;
+using Exercicio01.Model.entities;
 using Exercicio01.Model.Services;
 using Exercicio01.Model.Utils;
 using Exercicio01.Views;
@@ -35,7 +36,7 @@ namespace Exercicio01
                         ViewCliente.OperacoesCliente ();
                         break;
                     case 2:
-
+                        ViewContaBancaria.OperacoesBancarias ();
                         break;
                     case 3:
                         break;

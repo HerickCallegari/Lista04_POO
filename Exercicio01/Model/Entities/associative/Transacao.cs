@@ -13,6 +13,7 @@ namespace Exercicio01.Model.Entities.associative
         public ContaBancaria Emissor { get; private set; }
         public ContaBancaria Receptor { get; set; }
         public string? Operacao { get; private set; }
+
         private double _montante;
 
         public Transacao(ContaBancaria emissor, ContaBancaria receptor)

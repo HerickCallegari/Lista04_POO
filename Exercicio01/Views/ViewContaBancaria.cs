@@ -1,4 +1,4 @@
-﻿using Exercicio01.Model.entities;
+﻿using Banco.Model.Services;
 using Exercicio01.Model.Services;
 using Exercicio01.Model.Utils;
 using System;
@@ -7,44 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercicio01.Views
+namespace Banco.Views
     {
-    //Classe de interface grafica.
-     internal class ViewCliente
+    internal class ViewContaBancaria
         {
-        public static void OperacoesCliente ( )
-            {
-            ServicesCliente service = new ServicesCliente ();
+        public static void OperacoesBancarias ( ) {
+             ServiceContaBancaria service = new ServiceContaBancaria ();
 
             int operacao = 1;
             do {
                 Console.Clear ();
                 if (operacao < 1 || operacao > 5)
                     Console.WriteLine ("Operacao invalida, digite novamente");
-                Console.WriteLine ("-------- Cliente ---------");
+                Console.WriteLine ("-------- Conta Bancaria ---------");
                 Console.WriteLine ("1) Cadastrar.");
                 Console.WriteLine ("2) Listar.");
-                Console.WriteLine ("3) Remover.");
-                Console.WriteLine ("4) Modifica.");
+                Console.WriteLine ("3) Procurar conta.");
+                Console.WriteLine ("4) Remover conta.");
                 Console.WriteLine ("5) Voltar.");
                 operacao = Leitura.LerIntComMsg ("\nDigite a operacao: ");
                 switch (operacao) {
                     case 1:
-                        service.CriarCliente ();
+                        service.CriarConta ();
                         break;
                     case 2:
-                        service.ListarClientes ();
+                       // service.ListarContas ();
                         break;
                     case 3:
-                        service.RemoverCliente ();
+                        //service.ProcurarConta ();
                         break;
                     case 4:
-
+                        //service.RemoverConta ();
                         break;
                     }
                 } while (operacao != 5);
-            
             }
-       
         }
     }

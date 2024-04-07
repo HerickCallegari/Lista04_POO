@@ -17,7 +17,7 @@ namespace Exercicio01.Model.Services
          * com as tecnologias disponibilizadas pelo professor
          */
         public static List<Cliente> clientes = new List<Cliente> ();
-        public void CadastrarCliente ( )
+        public void CriarCliente ( )
             {
 
             string nome;
@@ -55,7 +55,7 @@ namespace Exercicio01.Model.Services
             {
             Console.Clear ();
             Console.WriteLine ("Lista de Clientes: ");
-            int index = 0;
+            int index = 1;
             if (clientes.Count == 0)
                 Console.WriteLine ("Nenhum cliente cadastrado.");
             foreach (Cliente cliente in clientes) {
