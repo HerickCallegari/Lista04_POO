@@ -10,7 +10,14 @@ namespace Exercicio01.Model.Services
     {
     internal class ServicesCliente
         {
-        public static void CadastrarCliente ( )
+        /* 
+         * como a aplicacao nao esta conectada a banco de dados
+         * decidi fazer uma lista de clientes statica para simular
+         * o armazenamento de informações e clientes 
+         * com as tecnologias disponibilizadas pelo professor
+         */
+        public static List<Cliente> clientes = new List<Cliente> ();
+        public void CadastrarCliente ( )
             {
 
             string nome;
@@ -34,7 +41,7 @@ namespace Exercicio01.Model.Services
             Console.WriteLine ("Precione Enter para continuar.");
             Console.ReadKey ();
             }
-        public static Cliente? ProcurarCliente ( int id )
+        public Cliente? ProcurarCliente ( int id )
             {
 
             foreach (Cliente cliente in clientes) {
@@ -44,7 +51,7 @@ namespace Exercicio01.Model.Services
             return null;
             }
 
-        public static void ListarClientes ( )
+        public void ListarClientes ( )
             {
             Console.Clear ();
             Console.WriteLine ("Lista de Clientes: ");
@@ -58,7 +65,7 @@ namespace Exercicio01.Model.Services
             Console.WriteLine ("\nPrecione Enter para continuar.");
             Console.ReadKey ();
             }
-        public static void RemoverCliente ( )
+        public void RemoverCliente ( )
             {
             Console.Clear ();
             int operador;

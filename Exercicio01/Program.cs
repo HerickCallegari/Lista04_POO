@@ -1,4 +1,5 @@
 ﻿using Exercicio01.Model.entities;
+using Exercicio01.Model.Services;
 using Exercicio01.Model.Utils;
 using Exercicio01.Views;
 
@@ -17,7 +18,7 @@ namespace Exercicio01
 
         static void Main ( string[] args )
             {
-            ViewCliente.clientes.Add (new Cliente ("teste", 1234, "teste@gmail.com", "teste", "4599123123"));
+            ServicesCliente.clientes.Add (new Cliente ("teste", 1234, "teste@gmail.com", "teste", "4599123123"));
             int operacao = 1;
             //estrutura de direcionamento de codigo
             do {
