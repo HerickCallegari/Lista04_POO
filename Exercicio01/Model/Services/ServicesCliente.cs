@@ -6,49 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercicio01.Views
+namespace Exercicio01.Model.Services
     {
-    //Classe de interface grafica.
-     internal class ViewCliente
+    internal class ServicesCliente
         {
-        /* 
-         * como a aplicacao nao esta conectada a banco de dados
-         * decidi fazer uma lista de clientes statica para simular
-         * o armazenamento de informações e clientes 
-         * com as tecnologias disponibilizadas pelo professor
-         */
-        public static List<Cliente> clientes = new List<Cliente>(); 
-        public static void OperacoesCliente ( )
-            {
-
-            int operacao = 1;
-            do {
-                Console.Clear ();
-                if (operacao < 1 || operacao > 4)
-                    Console.WriteLine ("Operacao invalida, digite novamente");
-                Console.WriteLine ("-------- Operacoes Cliente ---------");
-                Console.WriteLine ("1) Cadastrar.");
-                Console.WriteLine ("2) Listar.");
-                Console.WriteLine ("3) Remover.");
-                Console.WriteLine ("4) Modifica.");
-                Console.WriteLine ("5) Voltar.");
-                operacao = Leitura.LerIntComMsg ("\nDigite a operacao: ");
-                switch (operacao) {
-                    case 1:
-                        CadastrarCliente ();
-                        break;
-                    case 2:
-                        ListarClientes ();
-                        break;
-                    case 3:
-                        RemoverCliente ();
-                        break;
-                    case 4:
-                        break;
-                    }
-                } while (operacao != 4);
-            }
-        //Funcoes de crud
         public static void CadastrarCliente ( )
             {
 
@@ -70,11 +31,11 @@ namespace Exercicio01.Views
             else
                 Console.WriteLine ("\nEste CPF ja esta cadastrado.");
 
-            Console.WriteLine("Precione Enter para continuar.");
+            Console.WriteLine ("Precione Enter para continuar.");
             Console.ReadKey ();
             }
         public static Cliente? ProcurarCliente ( int id )
-        {
+            {
 
             foreach (Cliente cliente in clientes) {
                 if (cliente.CPF == id)
@@ -86,7 +47,7 @@ namespace Exercicio01.Views
         public static void ListarClientes ( )
             {
             Console.Clear ();
-            Console.WriteLine("Lista de Clientes: ");
+            Console.WriteLine ("Lista de Clientes: ");
             int index = 0;
             if (clientes.Count == 0)
                 Console.WriteLine ("Nenhum cliente cadastrado.");
@@ -128,10 +89,9 @@ namespace Exercicio01.Views
                     Console.WriteLine ("Operacao finalizada.");
                     }
                 }
-            clientes.Find()
+
             Console.WriteLine ("\nPrecione Enter para continuar.");
             Console.ReadKey ();
             }
-
         }
     }
