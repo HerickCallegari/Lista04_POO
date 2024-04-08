@@ -1,8 +1,10 @@
-﻿using Banco.Views;
+﻿using Banco.Model.Entities;
+using Banco.Views;
 using Exercicio01.Model.entities;
 using Exercicio01.Model.Services;
 using Exercicio01.Model.Utils;
 using Exercicio01.Views;
+using System.Security.Cryptography;
 
 /* 
  * Esta aplicacao tem objetivo de reforçar o 
@@ -15,11 +17,9 @@ namespace Exercicio01
     {
     internal class Program
         {
-        
-
         static void Main ( string[] args )
             {
-            ServicesCliente.clientes.Add (new Cliente ("teste", 1234, "teste@gmail.com", "teste", "4599123123"));
+            ServicesCliente.clientes.Add (new Cliente ("teste", 1234, "teste@gmail.com", new Endereco ("teste, 731", "bairro", "cidade", "estado"), "4599123123"));
             int operacao = 1;
             //estrutura de direcionamento de codigo
             do {

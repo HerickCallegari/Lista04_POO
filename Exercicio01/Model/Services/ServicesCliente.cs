@@ -1,13 +1,8 @@
 ﻿using Exercicio01.Model.entities;
-using Exercicio01.Model.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exercicio01.Model.Services
     {
+    //Classe responsavel pelo crud
     internal class ServicesCliente
         {
         /* 
@@ -17,31 +12,11 @@ namespace Exercicio01.Model.Services
          * com as tecnologias disponibilizadas pelo professor
          */
         public static List<Cliente> clientes = new List<Cliente> ();
-        public void CriarCliente ( )
+        public void Create ( Cliente cliente )
             {
-
-            string nome;
-            int cpf;
-            string email;
-            string endereco;
-            string telefone;
-
-            nome = Leitura.LerStringComMsg ("Nome: ");
-            cpf = Leitura.LerIntComMsg ("CPF: ");
-            email = Leitura.LerStringComMsg ("Email: ");
-            endereco = Leitura.LerStringComMsg ("Endereco: ");
-            telefone = Leitura.LerStringComMsg ("Telefone: ");
-            if (ProcurarCliente (cpf) == null) {
-                clientes.Add (new Cliente (nome, cpf, email, endereco, telefone));
-                Console.WriteLine ("Cliente cadastrado com sucesso.");
-                }
-            else
-                Console.WriteLine ("\nEste CPF ja esta cadastrado.");
-
-            Console.WriteLine ("Precione Enter para continuar.");
-            Console.ReadKey ();
+            clientes.Add (cliente);
             }
-        public Cliente? ProcurarCliente ( int id )
+        public Cliente? FindById ( long id )
             {
 
             foreach (Cliente cliente in clientes) {
@@ -51,54 +26,38 @@ namespace Exercicio01.Model.Services
             return null;
             }
 
-        public void ListarClientes ( )
+        public List<Cliente> FindAll ( )
             {
-            Console.Clear ();
-            Console.WriteLine ("Lista de Clientes: ");
-            int index = 1;
-            if (clientes.Count == 0)
-                Console.WriteLine ("Nenhum cliente cadastrado.");
-            foreach (Cliente cliente in clientes) {
-                Console.Write ($"\nCliente {index++}: ");
-                Console.WriteLine (cliente);
-                }
-            Console.WriteLine ("\nPrecione Enter para continuar.");
-            Console.ReadKey ();
+            return clientes;
             }
-        public void RemoverCliente ( )
+
+        public void Remove ( Cliente cliente )
             {
-            Console.Clear ();
-            int operador;
-            int id = Leitura.LerIntComMsg ("CPF do CLiente que voce deseja excluir: ");
-            Cliente? cliente = ProcurarCliente (id);
+            clientes.Remove (cliente);
+            }
 
-            if (cliente == null)
-                Console.WriteLine ("Este cliente nao existe.");
-            else if (cliente.Conta != null) {
-                Console.WriteLine ("nao é possivel remover este cliente, pois ele possui uma conta bancaria em seu nome.");
+        public void Update ( Cliente cliente )
+            {
+
+            Cliente? clienteAntigo = FindById (cliente.CPF);
+
+            if (clienteAntigo == null) {
+                throw new Exception ("Erro ao fazer o upload!");
                 }
-            else {
-                Console.WriteLine (cliente);
-
-                do {
-                    operador = Leitura.LerIntComMsg ("Tem certeza que deseja excluir este cliente (1: sim) (2: nao):");
-                    if (operador != 1 && operador != 2) {
-                        Console.WriteLine ("Digite 1 ou 2.");
-                        }
-                    } while (operador != 1 && operador != 2);
-
-                if (operador == 1) {
-                    clientes.Remove (cliente);
-
-                    Console.WriteLine ("Cliente removido com sucesso.");
+            if (clienteAntigo.Conta != null) {
+                ContaBancaria contaClienteAntigo = clienteAntigo.Conta;
+                try {
+                    cliente.TrocaConta (contaClienteAntigo);
+                    contaClienteAntigo.TrocaCliente (cliente);
                     }
-                else {
-                    Console.WriteLine ("Operacao finalizada.");
+                catch (Exception) {
+                    throw;
                     }
                 }
+            clientes.Remove (clienteAntigo);
+            clientes.Add (cliente);
 
-            Console.WriteLine ("\nPrecione Enter para continuar.");
-            Console.ReadKey ();
             }
+
         }
     }
